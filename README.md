@@ -1,3 +1,21 @@
-for production change the NODE_ENV , this will cause the
-serverSelectionTimeoutMS option for connection to MongoDB
-change to 5000 and the default for development is 1000
+#Simple File Upload API Using multer and GridFS
+
+Rename the `.env.example` to `.env`
+Set your `mongoURI` and `PORT` and `NODE_ENV`
+
+**To install**
+`npm install`
+
+---
+
+**scripts**
+development:
+`npm run dev`
+
+production:
+`npm start`
+
+---
+
+###Note
+For production change the NODE_ENV to production , this will cause the **serverSelectionTimeoutMS** option for connection to MongoDB change to 5000 and the default for development is 1000
