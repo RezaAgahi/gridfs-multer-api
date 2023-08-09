@@ -102,7 +102,6 @@ app.get("/files/:filename", async (req, res) => {
         } else {
             return res.json({
                 success: true,
-
                 file,
             });
         }
@@ -125,8 +124,6 @@ app.get("/files/stream/:filename", async (req, res) => {
                 msg: "No Such File",
             });
         } else {
-            // res.set("Content-Type", file[0].contentType);
-
             const stream = bucket.openDownloadStreamByName(req.params.filename);
 
             stream.on("data", (chunk) => {
@@ -181,6 +178,14 @@ app.delete("/files/del/:id", async (req, res) => {
 
 app.use((err, req, res, next) => {
     console.log(err);
+
+    if (err.message == "Unexpected field") {
+        return res.status(400).json({
+            success: false,
+            msg: "Only one file allowed with fieldname 'file'",
+        });
+    }
+
     res.status(500).json({
         success: false,
         msg: "Internal server error",

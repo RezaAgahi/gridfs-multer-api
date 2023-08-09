@@ -1,0 +1,102 @@
+{
+    "item": [
+        {
+            "name": "upload",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "file",
+                            "type": "file",
+                            "src": "sample.jpg"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "{{BASE_URL}}/upload",
+                    "host": ["{{BASE_URL}}"],
+                    "path": ["upload"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "List files",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{BASE_URL}}/files",
+                    "host": ["{{BASE_URL}}"],
+                    "path": ["files"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get a file",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{BASE_URL}}/files/be2d3747bc29b0c196351de038a057cb.jpg",
+                    "host": ["{{BASE_URL}}"],
+                    "path": ["files", "be2d3747bc29b0c196351de038a057cb.jpg"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Show a file",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{BASE_URL}}/files/stream/be2d3747bc29b0c196351de038a057cb.jpg",
+                    "host": ["{{BASE_URL}}"],
+                    "path": ["files", "stream", "be2d3747bc29b0c196351de038a057cb.jpg"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete a file",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "{{BASE_URL}}/files/del/64d3951ca831c80200f65ad7",
+                    "host": ["{{BASE_URL}}"],
+                    "path": ["files", "del", "64d3951ca831c80200f65ad7"]
+                }
+            },
+            "response": []
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [""]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [""]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "BASE_URL",
+            "value": "http://127.0.0.1:3000",
+            "type": "default"
+        }
+    ]
+}
