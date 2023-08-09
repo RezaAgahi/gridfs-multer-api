@@ -1,0 +1,6 @@
+{
+    "events": {
+        "start": "clear || cls"
+    },
+    "quiet": true
+}
